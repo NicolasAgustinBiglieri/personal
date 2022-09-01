@@ -1,20 +1,20 @@
 import psycopg2
 
-conexion = psycopg2.connect(
-    user = 'postgres',
-    password = 'admin',
-    host = '127.0.0.1',
-    port = '5432',
-    database = 'test_db'
+conexion = psycopg2.connect(  # Conectamos a la base de datos
+    user='admin',
+    password='admin',
+    host='localhost',
+    port='5432',
+    database='test_db'
 )
-try:
-    with conexion:
-        with conexion.cursor() as cursor:  # objeto para ejecutar sentencias sql
-            sentencia = 'SELECT * FROM persona'
-            cursor.execute(sentencia)
-            registros = cursor.fetchall()
-            print(registros)
-except Exception as e:
-    print(f' Ocurrió un error: {e}')
-finally:
-    conexion.close()
+print(conexion)
+
+cursor = conexion.cursor()  # Objeto que nos permite ejecutar sentencias SQL en PostgreSQL
+sentencia = 'SELECT * FROM persona'
+cursor.execute(sentencia)
+registros = cursor.fetchall()
+print(registros)
+
+cursor.close()
+conexion.close()
+
