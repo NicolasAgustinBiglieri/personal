@@ -10,11 +10,12 @@ conexion = psycopg2.connect(  # Conectamos a la base de datos
 try:
     with conexion:
         with conexion.cursor() as cursor:  # Objeto que nos permite ejecutar sentencias SQL en PostgreSQL
-            sentencia = 'UPDATE persona SET nombre = %s, apellido = %s, email = %s WHERE id_persona = %s'
-            valores = ('Juan Carlos', 'Juarez', 'jcjuarez@mail.com', 1)
+            sentencia = 'DELETE FROM persona WHERE id_persona IN %s'
+            entrada = input('Proporciona los id_persona a eliminar (separados por coma): ')
+            valores = (tuple(entrada.split(",")),)  # Split regresa lista, le sacamos las comas y convertimos en tupla
             cursor.execute(sentencia, valores)
-            registros_actualizados = cursor.rowcount
-            print(f'Registros Actualizados: {registros_actualizados}')
+            registros_eliminados = cursor.rowcount
+            print(f'Registros Eliminados: {registros_eliminados}')
 except Exception as e:
     print(f'Ocurrio un error: {e}')
 finally:
