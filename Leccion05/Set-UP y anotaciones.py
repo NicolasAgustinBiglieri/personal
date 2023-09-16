@@ -7,7 +7,7 @@
 # Las listas tienen elementos con índices, son modificables, se puede agregar nuevos elementos, sobreescribir, etc
 # Las tuplas son inmutables, no se pueden modificar los elementos ni agregar o eliminar
 
-# Las tuplas se definen con (); listas con []; tuplas con {}
+# Las tuplas se definen con (); listas con []; sets con {}
 
 planetas = {'Marte', 'Júpiter', 'Venus'}
 print(planetas)

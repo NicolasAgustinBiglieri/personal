@@ -1,3 +1,10 @@
+"""
+Una CLASE es una plantilla, a partir de la cual podemos crear objetos (instancias de la clase)
+
+La clase va a poseer Atributos y Métodos que van a establecer las características y comportamientos
+de los objetos que vamos a crear
+"""
+
 class Persona:
     def __init__(self, nombre, edad):
         self.nombre = nombre
