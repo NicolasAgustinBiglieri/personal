@@ -1,10 +1,10 @@
 import psycopg2
 
 conexion = psycopg2.connect(  # Conectamos a la base de datos
-    user='admin',
+    user='postgres',
     password='admin',
     host='localhost',
-    port='5432',
+    port='5433',
     database='test_db'
 )
 try:
@@ -20,3 +20,4 @@ except Exception as e:
     print(f'Ocurrio un error: {e}')
 finally:
     conexion.close()
+6

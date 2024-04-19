@@ -1,10 +1,10 @@
 import psycopg2 as bd
 
 conexion = bd.connect(  # Conectamos a la base de datos
-    user='admin',
+    user='postgres',
     password='admin',
     host='localhost',
-    port='5432',
+    port='5433',
     database='test_db'
 )
 try:
